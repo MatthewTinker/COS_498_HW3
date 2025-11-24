@@ -14,6 +14,7 @@ const fs = require('fs');
 const path = require('path');
 
 //Gets a list of the pdf files in the directory
+//Takes the current directory as a parameter.
 function getPdfList(dir) {
 
   
@@ -33,6 +34,7 @@ function getPdfList(dir) {
 }
 
 //Gets the metadata associated with those pdfs
+//Takes the current directory as a parameter.
 function metadata(dir) {
     const pdfs = getPdfList(dir);
     const results = [];
@@ -59,9 +61,10 @@ function metadata(dir) {
     }
 }
 
-
+//Helper function, designed to get returns WITHOUT exposing unecessary functions.
+//Takes the current directory as a parameter.
 function retPDF(dir){
     return metadata(dir);
 }
 
-module.exports(retPDF);
+module.exports = retPDF;
