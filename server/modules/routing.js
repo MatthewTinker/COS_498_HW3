@@ -18,7 +18,7 @@ function setupRoutes(app) {
 
     // Home page route
     app.get('/', (req, res) => {
-        res.render('index');
+        res.render('main');
     });
 
     // PDF list route
@@ -41,7 +41,7 @@ function setupRoutes(app) {
 
     // Catch-all 404 page
     app.use((req, res) => {
-        res.status(404).render('404', { title: '404 - Not Found' });
+        res.status(404).render('/404', { title: '404 - Not Found' });
     });
 }
 
