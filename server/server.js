@@ -17,20 +17,6 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 
 
 
-app.get('/', (req, res) => {
-    res.render('main');
-});
-
-app.get('/main', (req, res) => {
-    res.render('main');
-});
-
-
-
-app.post('/main', (req, res) => {
-})
- 
-
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
