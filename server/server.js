@@ -9,7 +9,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 
 // Import routing module
-const setupRoutes = require('./router');
+const setupRoutes = require('./routing');
 
 // Set up Handlebars
 app.set('view engine', 'hbs');
