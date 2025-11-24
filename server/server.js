@@ -1,3 +1,7 @@
+// The main server file
+// This sets up and executes the backbone of the server.
+// Sets up the middle ware, being express. Also imports paths, port, and handlebars
+
 const express = require('express');
 const app = express();
 const hbs = require('hbs');
@@ -16,6 +20,7 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 app.get('/', (req, res) => {
     res.render('main');
 });
+
 app.get('/main', (req, res) => {
     res.render('main');
 });
