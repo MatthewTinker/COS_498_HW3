@@ -16,16 +16,24 @@ const PDF_DIR = path.join(__dirname, 'pdfs');
 // Takes app as a parameter (Express instance)
 function setupRoutes(app) {
 
-    // Home page route
+    //Get Requests
     app.get('/', (req, res) => {
         res.render('main');
     });
 
-    // PDF list route
-    app.get('/pdf-list', (req, res) => {
-        const list = retPDF(PDF_DIR);
-        res(list);
+    app.get('/main', (req, res) => {
+        res.render('main');
     });
+
+    app.get('/pdf_page', (req, res) => {
+        res.render('pdf_page');
+    });
+
+    // // PDF list route
+    // app.get('/pdf_page', (req, res) => {
+    //     const list = retPDF(PDF_DIR);
+    //     res(list);
+    // });
 
     // PDF serving route
     app.get('/pdf/:name', (req, res) => {
@@ -41,7 +49,7 @@ function setupRoutes(app) {
 
     // Catch-all 404 page
     app.use((req, res) => {
-        res.status(404).render('/404', { title: '404 - Not Found' });
+        res.status(404).render('404', { title: '404 - Not Found' });
     });
 }
 
