@@ -3,7 +3,8 @@
  * 
  * Custom Module designed to handle all the server routing
  * 
- * What is handled by routing.js:
+ * This includes simple pages such as the main page or /, the pdf page, as well as the error page.
+ * This includes passing a list of pdfs to the pdf page in order to display them, and validating them.
  */
 
 const path = require("path");

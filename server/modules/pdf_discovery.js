@@ -3,11 +3,9 @@
  * 
  * Used to discover all pdf's within a directory, being the pdfs directory
  * 
- * 
  * Requires: fs (filesystem), and path
  * Scans directory for pdf files. Once a list is obtained, searches for metadata. After this,
  * compiles a list of pdfs and associated metadata. Helper function to get all data without exposing functions.
- * 
  */
 
 const fs = require('fs');
