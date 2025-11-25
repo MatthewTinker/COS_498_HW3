@@ -43,12 +43,11 @@ function metadata(dir) {
         const metadataFile = `${pdf.name}.json`;
         const metadataPath = path.join(dir, metadataFile);
 
-        let metadata = null;
+        let data = null;
 
         if (fs.existsSync(metadataPath)) {
             try {
-                const raw = fs.readFileSync(metadataPath, 'utf8');
-                metadata = JSON.parse(raw);
+                data = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
             } catch (err) {
                 console.warn(`Error reading metadata for ${pdf.name}:`, err);
             }
@@ -56,9 +55,11 @@ function metadata(dir) {
 
         results.push({
             ...pdf,
-            metadata
+            metadata: data
         });
     }
+
+    return results;
 }
 
 //Helper function, designed to get returns WITHOUT exposing unecessary functions.
