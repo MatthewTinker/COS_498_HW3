@@ -26,7 +26,7 @@ function setupRoutes(app) {
         res.render('main');
     });
 
-    app.get('/pdf_page.hbs', (req, res) => {
+    app.get('/pdf_page', (req, res) => {
         res.render('pdf_page');
     });
 
