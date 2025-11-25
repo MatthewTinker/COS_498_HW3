@@ -21,15 +21,15 @@ function setupRoutes(app) {
         res.render('main');
     });
 
-    // 
+    // Redirect to home page
     app.get('/main', (req, res) => {
         res.render('main');
     });
 
-    // PDF list route
+    // PDF page
     app.get('/pdf_page', (req, res) => {
-        const pdfs = retPDF(PDF_DIR);
-        res('pdf_page', { pdfs});
+        const pdfs_list = retPDF(PDF_DIR);
+        res('pdf_page', { pdfs_list});
     });
 
     // PDF serving route
