@@ -4,9 +4,17 @@ ul {
   padding: 0;
   background-color: #7486b0;
   display: flex;
-  width: 500;
   justify-content: center;
+  gap: 25px; 
 }
+
+ul li a {
+  display: block;
+  color: white;
+  padding: 14px 24px; 
+  text-decoration: none;
+}
+
 
 h1 {
   text-align: center;
@@ -26,14 +34,6 @@ body {
     background-color: #5f95c7;
     margin: 0;
     padding: 0;
-}
-
-ul li a {
-  align-content: center;
-  display: block;
-  color: white;
-  padding: 14px 20px;
-  text-decoration: none;
 }
 
 ul li a:hover {
