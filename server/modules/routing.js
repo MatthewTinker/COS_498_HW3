@@ -28,8 +28,8 @@ function setupRoutes(app) {
 
     // PDF list route
     app.get('/pdf_page', (req, res) => {
-        const list = retPDF(PDF_DIR);
-        res('pdf_page', { list});
+        const pdfs = retPDF(PDF_DIR);
+        res('pdf_page', { pdfs});
     });
 
     // PDF serving route
