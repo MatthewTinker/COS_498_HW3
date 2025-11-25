@@ -9,7 +9,7 @@ After this, SSL certificates were setup through lets encrypt and NGINX proxy set
 # Modules
 
 ### Routing
-Routing is done through a singular module. It uses a single function from both pdf discovery and validation. Routes exist to serve the basic pages, as well as serve the PDF files.
+Base pages, such as the / and main directory will be handled through server. However, to use pdfs, a seperate module named router.js exists. It's primary purpose is to route the pdf requests to the appropriate location.
 
 ### PDF Discovery and Validation
 PDF's are discovered through a single module. This module seeks a specific pdf directory, and then creates a list of all of these pdfs. It will additionally find metadata used for each of the pdf's. Combining both is a helper function that helps protect the functions from being vulnerable
