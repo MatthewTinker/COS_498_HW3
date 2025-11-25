@@ -27,7 +27,7 @@ function setupRoutes(app) {
     });
 
     app.get('/pdf_page.hbs', (req, res) => {
-        res.render('main');
+        res.render('pdf_page');
     });
 
     // PDF list route
@@ -50,7 +50,7 @@ function setupRoutes(app) {
 
     // Catch-all 404 page
     app.use((req, res) => {
-        res.status(404).render('404', { title: '404 - Not Found' });
+        res.status(404).render('/404', { title: '404 - Not Found' });
     });
 }
 
