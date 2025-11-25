@@ -2,6 +2,8 @@
 // This sets up and executes the backbone of the server.
 // Sets up the middle ware, being express. Also imports paths, port, and handlebars
 
+
+//Require statements
 const express = require('express');
 const app = express();
 const hbs = require('hbs');

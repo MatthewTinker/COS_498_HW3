@@ -3,20 +3,17 @@
  * 
  * Custom Module designed to handle all the server routing
  * 
- * What is handled by routing.js:
+ * This includes simple pages such as the main page or /, the pdf page, as well as the error page.
+ * This includes passing a list of pdfs to the pdf page in order to display them, and validating them.
  */
 
-const fs = require("fs")
 const path = require("path");
 const pdf_validate = require('./pdf_validate');
-const pdf_discovery = require('./pdf_discovery');
-//const retPDF = require("./modules/pdf_discovery");
-const PDF_DIR = path.join(__dirname, 'pdfs');
+const retPDF = require('./pdf_discovery');
 
-// Takes app as a parameter (Express instance)
+const PDF_DIR = path.join(__dirname, '..', 'pdfs');
+
 function setupRoutes(app) {
-
-    // Home page route
     app.get('/', (req, res) => {
         res.render('main');
     });
@@ -27,16 +24,18 @@ function setupRoutes(app) {
         res.render('pdf_page');
     });
 
-    // PDF list route
-    app.get('/pdf-list', (req, res) => {
-        const list = retPDF(PDF_DIR);
-        res(list);
+    app.get('/main', (req, res) => {
+        res.render('main');
     });
 
-    // PDF serving route
+    app.get('/pdf_page', (req, res) => {
+        const pdfs_list = retPDF(PDF_DIR);
+        res.render('pdf_page', { pdfs_list });
+    });
+
     app.get('/pdf/:name', (req, res) => {
         const pdfName = req.params.name;
-        const result = validatePDF(pdfName, PDF_DIR);
+        const result = pdf_validate(pdfName, PDF_DIR);
 
         if (!result.ok) {
             return res.status(404).send("PDF Not Found");
@@ -45,9 +44,8 @@ function setupRoutes(app) {
         res.sendFile(result.fullPath);
     });
 
-    // Catch-all 404 page
     app.use((req, res) => {
-        res.status(404).render('404', { title: '404 - Not Found' });
+        res.status(404).render('404');
     });
 }
 

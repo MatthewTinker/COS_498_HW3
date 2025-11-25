@@ -7,12 +7,29 @@
     <link rel="" href="">
 </head>
 
-{{> navbar}}
+
 <body>
+    {{> navbar}}
 
-    <h1>Available PDF's</h1>
+    <h1>Available PDFs</h1>
 
+    <ul>
+    {{#if pdfs_list}}
+        {{#each pdfs_list}}
+            <li>
+                <h3>{{metadata.title}}</h3>
+                <p>{{metadata.description}}</p>
+                <a href="/pdf/{{name}}">View PDF</a>
+            </li>
+        {{/each}}
+    {{else}}
+        <p> No PDF documents are available at this time! </p>
+    {{/if}}
+    </ul>
+
+    {{> footer}}
 </body>
+
 
 
 </html>
