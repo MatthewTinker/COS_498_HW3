@@ -8,7 +8,7 @@ const app = express();
 const hbs = require('hbs');
 const path = require('path');
 const PORT = process.env.PORT || 3000;
-const setupRoutes = require('./modules/routing');
+const { router } = require('./modules/router')
 
 // Set up Handlebars
 app.set('view engine', 'hbs');
@@ -18,8 +18,26 @@ hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 // Static public folder (NOTE: this is ONLY used for CSS! pdfs will NOT be served here.)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Set up routes
-setupRoutes(app);
+
+//Homepage route
+app.get('/', (req, res) => {
+    res.render('main');
+});
+
+//Homepage route
+app.get('/main', (req, res) => {
+    res.render('main');
+});
+
+//Route the pdf pages
+app.use('/pdf_page', router);
+app.use('/pdf', router);
+
+//404 rendering
+app.use((req, res) => {
+    res.status(404).render('404');
+});
+
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
