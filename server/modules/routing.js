@@ -21,6 +21,15 @@ function setupRoutes(app) {
         res.render('main');
     });
 
+    // 
+    app.get('/main', (req, res) => {
+        res.render('main');
+    });
+
+    app.get('/pdf_page.hbs', (req, res) => {
+        res.render('main');
+    });
+
     // PDF list route
     app.get('/pdf-list', (req, res) => {
         const list = retPDF(PDF_DIR);
@@ -41,7 +50,7 @@ function setupRoutes(app) {
 
     // Catch-all 404 page
     app.use((req, res) => {
-        res.status(404).render('/404', { title: '404 - Not Found' });
+        res.status(404).render('404', { title: '404 - Not Found' });
     });
 }
 
