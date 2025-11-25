@@ -26,14 +26,10 @@ function setupRoutes(app) {
         res.render('main');
     });
 
-    app.get('/pdf_page', (req, res) => {
-        res.render('pdf_page');
-    });
-
     // PDF list route
-    app.get('/pdf-list', (req, res) => {
+    app.get('/pdf_page', (req, res) => {
         const list = retPDF(PDF_DIR);
-        res(list);
+        res('pdf_page', { list});
     });
 
     // PDF serving route

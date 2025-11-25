@@ -12,6 +12,21 @@
 
     <h1>Available PDF's: List Below</h1>
 
+    {{#if pdfs}}
+        <ul class="pdf-list">
+            {{#each pdfs}}
+                <li class="pdf-item">
+                    <h2>{{title}}</h2>
+                    <p>{{description}}</p>
+
+                    <a href="{{url}}" target="_blank">View / Download</a>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No PDF files found.</p>
+    {{/if}}
+
 </body>
 
 
