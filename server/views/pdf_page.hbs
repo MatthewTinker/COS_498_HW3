@@ -8,25 +8,20 @@
 </head>
 
 {{> navbar}}
+
 <body>
 
-    <h1>Available PDF's: List Below</h1>
+    <h1>Available PDFs</h1>
 
-    {{#if pdfs_list}}
-        <ul class="pdf-list">
-            {{#each pdfs_lists}}
-                <li class="pdf-item">
-                    <h2>{{title}}</h2>
-                    <p>{{description}}</p>
-
-                    <a href="{{url}}" target="_blank">View / Download</a>
-                </li>
-            {{/each}}
-        </ul>
-    {{else}}
-        <p>No PDF files found.</p>
-    {{/if}}
-
+    <ul>
+    {{#each pdfs_list}}
+        <li>
+            <h3>{{metadata.title}}</h3>
+            <p>{{metadata.description}}</p>
+            <a href="/pdf/{{name}}">View PDF</a>
+        </li>
+    {{/each}}
+    </ul>
 </body>
 
 

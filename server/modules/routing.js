@@ -11,31 +11,31 @@ const path = require("path");
 const pdf_validate = require('./pdf_validate');
 const pdf_discovery = require('./pdf_discovery');
 const retPDF = require("./pdf_discovery");
-const PDF_DIR = path.join(__dirname, 'pdfs');
+const PDF_DIR = path.join(__dirname, '..', 'pdfs'); //Need to go one up to see the pdfs directory
 
 // Takes app as a parameter (Express instance)
 function setupRoutes(app) {
 
-    // Home page route
+    // Home page
     app.get('/', (req, res) => {
         res.render('main');
     });
 
-    // Redirect to home page
+    // Home page (main version)
     app.get('/main', (req, res) => {
         res.render('main');
     });
 
-    // PDF page
+    // PDF listing page
     app.get('/pdf_page', (req, res) => {
         const pdfs_list = retPDF(PDF_DIR);
-        res('pdf_page', { pdfs_list});
+        res.render('pdf_page', { pdfs_list });
     });
 
-    // PDF serving route
+    // PDF serving
     app.get('/pdf/:name', (req, res) => {
         const pdfName = req.params.name;
-        const result = validatePDF(pdfName, PDF_DIR);
+        const result = pdf_validate(pdfName, PDF_DIR);
 
         if (!result.ok) {
             return res.status(404).send("PDF Not Found");
