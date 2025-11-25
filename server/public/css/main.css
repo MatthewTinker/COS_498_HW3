@@ -15,17 +15,17 @@ ul li a {
   text-decoration: none;
 }
 
-nav ul {
+header nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #7486b0;
+  background-color: #557a8b;
   display: flex;
   justify-content: center;
   gap: 25px; 
 }
 
-nav ul li a {
+header nav ul li a {
   display: block;
   color: white;
   padding: 14px 24px; 
