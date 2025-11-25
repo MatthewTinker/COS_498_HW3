@@ -10,30 +10,28 @@ const fs = require("fs")
 const path = require("path");
 const pdf_validate = require('./pdf_validate');
 const pdf_discovery = require('./pdf_discovery');
-const retPDF = require("./pdf_discovery");
+//const retPDF = require("./modules/pdf_discovery");
 const PDF_DIR = path.join(__dirname, 'pdfs');
 
 // Takes app as a parameter (Express instance)
 function setupRoutes(app) {
 
-    //Get Requests
+    // Home page route
     app.get('/', (req, res) => {
         res.render('main');
     });
-
     app.get('/main', (req, res) => {
         res.render('main');
     });
-
     app.get('/pdf_page', (req, res) => {
         res.render('pdf_page');
     });
 
-    // // PDF list route
-    // app.get('/pdf_page', (req, res) => {
-    //     const list = retPDF(PDF_DIR);
-    //     res(list);
-    // });
+    // PDF list route
+    app.get('/pdf-list', (req, res) => {
+        const list = retPDF(PDF_DIR);
+        res(list);
+    });
 
     // PDF serving route
     app.get('/pdf/:name', (req, res) => {
