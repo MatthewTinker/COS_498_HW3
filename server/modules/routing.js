@@ -17,13 +17,7 @@ function setupRoutes(app) {
     app.get('/', (req, res) => {
         res.render('main');
     });
-    app.get('/main', (req, res) => {
-        res.render('main');
-    });
-    app.get('/pdf_page', (req, res) => {
-        res.render('pdf_page');
-    });
-
+    
     app.get('/main', (req, res) => {
         res.render('main');
     });
